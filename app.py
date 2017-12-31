@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -24,6 +24,13 @@ def profile(user):
 def post(post_id):
     return "Post ID = %s" % post_id
 
+# e.g: http://localhost:5000/http
+@app.route('/http', methods=['GET', 'POST'])
+def http():
+    if request.method == "POST":
+        return "POST method detected"
+    else:
+        return "GET method detected"
 
 
 
