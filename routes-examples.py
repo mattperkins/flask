@@ -19,6 +19,13 @@ def about():
 def profile(user):
     return "Welcome %s" % user
 
+
+# e.g: using template: http://localhost:5000/profile/Fred
+@app.route('/profile/<user>')
+def profile(user):
+    return render_template("profile.html", user=user)
+
+
 # e.g: http://localhost:5000/post/8594
 @app.route('/post/<int:post_id>')
 def post(post_id):
